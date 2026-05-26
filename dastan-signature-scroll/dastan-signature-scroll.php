@@ -4,7 +4,7 @@
  * Description:  Animates a cursive "Dastan" signature that draws itself as
  *               visitors scroll the page, with the ink trail looping elegantly
  *               around every headline it encounters.
- * Version:      1.0.0
+ * Version:      1.1.0
  * Author:       Dastan
  * Text Domain:  dastan-signature-scroll
  * License:      GPL-2.0-or-later
@@ -16,7 +16,7 @@ add_action( 'wp_enqueue_scripts', 'dss_enqueue_assets' );
 
 function dss_enqueue_assets() {
     $base = plugin_dir_url( __FILE__ );
-    $ver  = '1.0.0';
+    $ver  = '1.1.0';
 
     wp_enqueue_style(
         'dastan-signature-scroll',
