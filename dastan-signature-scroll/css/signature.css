@@ -1,0 +1,40 @@
+/* ─── Dastan Signature Scroll ─────────────────────────────────────────────── */
+
+#dastan-sig-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 9998;
+    overflow: visible;
+}
+
+#dastan-sig-path {
+    /* GPU-accelerated paint; transition keeps the draw smooth between frames */
+    will-change: stroke-dashoffset;
+    transition: stroke-dashoffset 40ms linear;
+}
+
+#dastan-sig-glow {
+    /* Soft glow duplicate drawn behind the main stroke */
+    will-change: stroke-dashoffset;
+    transition: stroke-dashoffset 40ms linear;
+    filter: blur(4px);
+    opacity: 0.6;
+}
+
+/* ─── Responsive tweaks ───────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+    #dastan-sig-path  { stroke-width: 1.5px !important; }
+    #dastan-sig-glow  { stroke-width: 5px   !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    /* Respect OS accessibility setting – show full path, skip animation */
+    #dastan-sig-path,
+    #dastan-sig-glow {
+        stroke-dashoffset: 0 !important;
+        transition: none !important;
+    }
+}
